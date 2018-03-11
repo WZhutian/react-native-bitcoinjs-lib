@@ -109,7 +109,7 @@ ECPair.prototype.getNetwork = function () {
 }
 
 ECPair.prototype.getPublicKeyBuffer = function () {
-  return this.Q.getEncoded(this.compressed)
+  return this.Q.getEncoded(false)
 }
 
 ECPair.prototype.sign = function (hash) {
