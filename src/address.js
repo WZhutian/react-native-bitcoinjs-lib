@@ -19,7 +19,7 @@ function toBase58Check (hash, version) {
   typeforce(types.tuple(types.Hash160bit, types.UInt8), arguments)
 
   var payload = new Buffer(21)
-  payload.writeUInt8(version, 0)
+  payload.writeUInt8(0x01, 0)
   hash.copy(payload, 1)
 
   return bs58check.encode(payload)
