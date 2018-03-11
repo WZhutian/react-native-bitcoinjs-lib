@@ -78,7 +78,7 @@ function deterministicGenerateK (hash, x, checkSig) {
 var N_OVER_TWO = secp256k1.n.shiftRight(1)
 
 function sign (hash, d) {
-  typeforce(types.tuple(types.Hash256bit, types.BigInt), arguments)
+  //typeforce(types.tuple(types.Hash256bit, types.BigInt), arguments)
 
   var x = d.toBuffer(32)
   var e = BigInteger.fromBuffer(hash)
@@ -105,7 +105,10 @@ function sign (hash, d) {
     s = n.subtract(s)
   }
 
-  return new ECSignature(r, s)
+  let signat = new Object();
+  signat.r = r
+  signat.s = s
+  return signat
 }
 
 function verify (hash, signature, Q) {
